@@ -10,12 +10,25 @@
 #     LOOKING FOR IDE02!!!
 #  -- Use local-lvm as partition to map to cloud init drive
 #  -- Cloud image was resized and prepped (KVM Guest Agent installed)
-#     + <link>
+#     REF: https://austinsnerdythings.com/2021/08/30/how-to-create-a-proxmox-ubuntu-cloud-init-image/
+#
+#     On the host used to provison proxmox VMs
+#     sudo apt update -y && sudo apt install libguestfs-tools -y
 #---------------------------
 VMID=8200
 PVE_DISK="fast0-pve6"
-CLOUD_IMG="ubuntu-23.04-server-cloudimg-amd64-disk-kvm.qcow2"
+DISK_SZ=32
+CLOUD_IMG="lunar-server-cloudimg-amd64-disk-kvm.qcow2"
 
+# Downloaded and prep the disk
+wget https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-disk-kvm.img
+mv lunar-server-cloudimg-amd64-disk-kvm.img $CLOUD_IMG
+qemu-img resize "$CLOUD_IMG ${DISK_SZ}G"
+virt-customize -a $CLOUD_IMG --install qemu-guest-agent
+virt-customize -a $CLOUD_IMG --run-command 'touch /home/lorenzo/.hushlogin'
+
+
+# Prep the VM and import the cloud image disk (Ubuntu 23.04)
 qm set $VMID --serial0 socket --vga serial0
 qm importdisk $VMID $CLOUD_IMG $PVE_DISK
 qm set $VMID --scsihw virtio-scsi-single --scsi0 $PVE_DISK:vm-$VMID-disk-0
