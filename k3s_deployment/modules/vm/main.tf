@@ -22,14 +22,6 @@ resource local_sensitive_file vm-ssh-private-key {
   content         = tls_private_key.vm_ssh_keys.private_key_pem
 }
 
-
-##########################################################
-# Local variables and data sources
-##########################################################
-locals {
-  hostname = "${var.basename}"
-}
-
 resource proxmox_vm_qemu linux_server {
   depends_on = [
     tls_private_key.vm_ssh_keys
