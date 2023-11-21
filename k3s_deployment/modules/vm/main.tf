@@ -51,7 +51,7 @@ resource proxmox_vm_qemu linux_server {
   cpu         = "host"
   memory      = 8192
   scsihw      = "virtio-scsi-single"
-# bootdisk    = "scsi0"
+  bootdisk    = "scsi0"
   disk {
     slot      = 0
     size      = "32G"
@@ -63,8 +63,6 @@ resource proxmox_vm_qemu linux_server {
     cache     = "unsafe"
     ssd       = 1
     aio       = "io_uring"
-  #  file      = "base-${var.vmid}-disk-0"
-  #  volume    = "fast0-pve6:vm-${var.vmid}-disk-0"
   }
 
   network {
