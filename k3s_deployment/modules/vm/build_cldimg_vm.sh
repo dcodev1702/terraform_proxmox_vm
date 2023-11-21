@@ -20,6 +20,15 @@ PVE_DISK="fast0-pve6"
 DISK_SZ=32
 CLOUD_IMG="lunar-server-cloudimg-amd64-disk-kvm.qcow2"
 
+# Create VM
+   # Set VMID and name [ubun-2304-tmpl]
+   # OS
+   # REMOVE CDROM
+   # REMOVE SCSI CNTRLR
+   # Processors # of cores | Type = HOST
+   # Memory
+   # NIC
+
 # Downloaded and prep the disk
 wget https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-disk-kvm.img
 mv lunar-server-cloudimg-amd64-disk-kvm.img $CLOUD_IMG
