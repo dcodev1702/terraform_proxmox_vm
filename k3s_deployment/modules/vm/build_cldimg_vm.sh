@@ -9,7 +9,7 @@
 #     IF YOU DO NOT, PROVISIONING WILL SHIT THE BED EVERY TIME!  THE PROVIDER IS
 #     LOOKING FOR IDE02!!!
 #  -- Use local-lvm as partition to map to cloud init drive
-#  -- Cloud image was resized and prepped
+#  -- Cloud image was resized and prepped (KVM Guest Agent installed)
 #     + <link>
 #---------------------------
 VMID=8200
