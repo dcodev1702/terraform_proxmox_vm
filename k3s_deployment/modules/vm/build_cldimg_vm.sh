@@ -15,6 +15,9 @@
 #     On the host used to provison proxmox VMs
 #     sudo apt update -y && sudo apt install libguestfs-tools -y
 #---------------------------
+URL="https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-disk-kvm.img"
+CLOUD_IMG_ORIG=$(basename "$URL")
+
 VMID=8200
 PVE_DISK="fast0-pve6"
 DISK_SZ=32
@@ -30,12 +33,12 @@ CLOUD_IMG="lunar-server-cloudimg-amd64-disk-kvm.qcow2"
    # NIC
 
 # Downloaded and prep the disk 32 GB (size) & by installing qemu guest agent
-wget https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-disk-kvm.img
-mv lunar-server-cloudimg-amd64-disk-kvm.img $CLOUD_IMG
-qemu-img resize "$CLOUD_IMG ${DISK_SZ}G"
-virt-customize -a $CLOUD_IMG --install qemu-guest-agent
-virt-customize -a $CLOUD_IMG --run-command 'touch /home/lorenzo/.hushlogin'
-
+if [ ! -f "$FILE" ]; then
+   wget $URL
+   mv $CLOUD_IMG_ORIG $CLOUD_IMG
+   qemu-img resize "$CLOUD_IMG ${DISK_SZ}G"
+   virt-customize -a $CLOUD_IMG --install qemu-guest-agent
+fi
 
 # Prep the VM and import the cloud image disk (Ubuntu 23.04)
 qm set $VMID --serial0 socket --vga serial0
