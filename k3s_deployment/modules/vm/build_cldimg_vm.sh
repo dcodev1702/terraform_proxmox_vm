@@ -46,3 +46,12 @@ qm importdisk $VMID $CLOUD_IMG $PVE_DISK
 qm set $VMID --scsihw virtio-scsi-single --scsi0 $PVE_DISK:vm-$VMID-disk-0
 qm set $VMID --agent enabled=1
 qm set $VMID --boot c --bootdisk scsi0
+
+   # Now go to hardware and add the CLOUD INIT drive. 
+   # Ensure THE CLOUD INIT DRIVE is added to IDE02 OR ELSE TF WILL FAIL TO PROVISION THE VM!
+   # Go to CLOUD INIT and configure the drive
+     # Username
+     # Password
+     # SSH Keys
+     # IP CONFIG
+   # BE SURE TO 'REGENERATE' THE CLOUD INIT DRIVE before converting the VM to a TEMPLATE!!!
