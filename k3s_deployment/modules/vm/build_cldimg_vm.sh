@@ -6,8 +6,8 @@
 
 # Use latest proxmox provider
 #  -- WHEN CREATING A CLOUD INIT DRIVE, YOU MUST SET CLOUD INIT DRIVE TO IDE02!!!!!
-#     IF YOU DO NOT, PROVISIONING WILL SHIT THE BED EVERY TIME!  THE PROVIDER IS
-#     LOOKING FOR IDE02!!!
+#     IF YOU DO NOT, PROVISIONING VMs WILL SHIT THE BED EVERY TIME! THE PROVIDER IS
+#     HARD CODED TO LOOK FOR CLOUD INIT DRIVE ON IDE02!!!
 #  -- Use local-lvm as partition to map to cloud init drive
 #  -- Cloud image was resized and prepped (KVM Guest Agent installed)
 #     REF: https://austinsnerdythings.com/2021/08/30/how-to-create-a-proxmox-ubuntu-cloud-init-image/
@@ -29,7 +29,7 @@ CLOUD_IMG="lunar-server-cloudimg-amd64-disk-kvm.qcow2"
    # Memory
    # NIC
 
-# Downloaded and prep the disk
+# Downloaded and prep the disk 32 GB (size) & by installing qemu guest agent
 wget https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-disk-kvm.img
 mv lunar-server-cloudimg-amd64-disk-kvm.img $CLOUD_IMG
 qemu-img resize "$CLOUD_IMG ${DISK_SZ}G"
