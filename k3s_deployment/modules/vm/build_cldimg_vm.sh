@@ -28,7 +28,7 @@ PVE_DISK="fast0-pve6"
 DISK_SZ=32
 CLOUD_IMG="lunar-server-cloudimg-amd64-disk-kvm.qcow2"
 
-# Check if VM exists by using proxmox API
+# Check if VM exists by VMID using proxmox API, if not, create VM. 
 # Create VM
    # Set VMID and name [ubun-2304-tmpl]
    # OS
