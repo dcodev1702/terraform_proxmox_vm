@@ -23,10 +23,16 @@
 URL="https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-disk-kvm.img"
 CLOUD_IMG_ORIG=$(basename "$URL")
 
-VMID=8900
+VMID=8200
 PVE_DISK="fast0-pve6"
 DISK_SZ=32
 CLOUD_IMG="lunar-server-cloudimg-amd64-disk-kvm.qcow2"
+PVE_NODE="pve-6"
+PVE_NODE_IP="192.168.10.173:8006"
+API_SECRET="ee0d225f-10b7-4d23-9ee9-e3157c37bfc3"
+
+#curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api4/json
+VM_EXISTS=`curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api2/json/nodes/pve-6/qemu/$VMID/status/current | jq .data.name`
 
 # Check if VM exists by VMID using proxmox API, if not, create VM. 
 # Create VM
