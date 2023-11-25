@@ -14,15 +14,21 @@
 #
 #     On the host used to provison proxmox VMs
 #     sudo apt update -y && sudo apt install libguestfs-tools -y
+#
+#  -- Check to see if VM exists: /api2/json/nodes/{node}/qemu/{vmid}/status/current"
+#  -- or
+#    Use jq to parse the JSON and extract the value for id 8200
+#    result=$(echo "$json" | jq -r --arg vmid "$VMID" '.ids[$vmid]')
 #---------------------------
 URL="https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-disk-kvm.img"
 CLOUD_IMG_ORIG=$(basename "$URL")
 
-VMID=8200
+VMID=8900
 PVE_DISK="fast0-pve6"
 DISK_SZ=32
 CLOUD_IMG="lunar-server-cloudimg-amd64-disk-kvm.qcow2"
 
+# Check if VM exists by using proxmox API
 # Create VM
    # Set VMID and name [ubun-2304-tmpl]
    # OS
