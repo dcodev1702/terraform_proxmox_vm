@@ -35,3 +35,7 @@ variable private_key_path {
   type        = string
   description = "SSH Private Key Path"
 }
+variable username {
+  type        = string
+  description = "Username"
+}
