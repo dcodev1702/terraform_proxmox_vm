@@ -31,3 +31,7 @@ variable api_token_secret {
   type        = string
   description = "Proxmox API Token Secret"
 }
+variable private_key_path {
+  type        = string
+  description = "SSH Private Key Path"
+}
