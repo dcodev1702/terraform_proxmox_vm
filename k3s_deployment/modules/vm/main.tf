@@ -62,6 +62,17 @@ resource proxmox_vm_qemu linux_server {
     bridge = "vmbr0"
   }
 
+  provisioner "remote-exec" {
+    inline = [ "touch /home/lorenzo/.hushlogin", "sudo reboot" ]
+
+    connection {
+      type = "ssh"
+      host = self.ssh_host
+      user = "lorenzo"
+      private_key = file(var.private_key_path)
+    }
+  }
+
   lifecycle {
     ignore_changes = [
       network,
