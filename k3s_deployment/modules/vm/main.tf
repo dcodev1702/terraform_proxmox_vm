@@ -63,8 +63,23 @@ resource proxmox_vm_qemu linux_server {
   }
 
   ssh_user = var.username
+  provisioner "file" {
+    source      = "./bootstrap_vm.sh" 
+    destination = "/tmp/bootstrap_vm.sh" 
+    
+    connection {
+      type = "ssh"
+      host = self.ssh_host
+      user = self.ssh_user
+      private_key = file(var.private_key_path)
+    }
+  }
+
   provisioner "remote-exec" {
-    script = ./bootstrap_vm.sh" 
+    inline = [ 
+      "chmod +x /tmp/bootstrap_vm.sh",
+      "sudo ./tmp/bootstrap_vm.sh ${var.username}"
+    ] 
 
     connection {
       type = "ssh"
