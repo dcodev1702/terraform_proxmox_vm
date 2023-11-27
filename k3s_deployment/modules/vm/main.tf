@@ -64,7 +64,7 @@ resource proxmox_vm_qemu linux_server {
 
   ssh_user = var.username
   provisioner "remote-exec" {
-    inline = [ "touch /home/lorenzo/.hushlogin", "sudo reboot" ]
+    inline = [ "touch /home/lorenzo/.hushlogin" ]
 
     connection {
       type = "ssh"
