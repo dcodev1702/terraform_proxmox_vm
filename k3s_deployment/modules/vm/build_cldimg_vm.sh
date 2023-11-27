@@ -48,15 +48,13 @@ qm create $VMID -name ubun-2304-tmpl-01 -memory 2048 -net0 virtio,bridge=vmbr0 -
 if [ ! -f "$FILE" ]; then
    wget $URL
    mv $CLOUD_IMG_ORIG $CLOUD_IMG
-   qemu-img resize "$CLOUD_IMG ${DISK_SZ}G"
+   qemu-img resize $CLOUD_IMG ${DISK_SZ}G
    virt-customize -a $CLOUD_IMG --install qemu-guest-agent
 fi
 
 # Prep the VM and import the cloud image disk (Ubuntu 23.04)
-qm set $VMID --serial0 socket --vga serial0
 qm importdisk $VMID $CLOUD_IMG $PVE_DISK
 qm set $VMID --scsihw virtio-scsi-single --scsi0 $PVE_DISK:vm-$VMID-disk-0
-qm set $VMID --agent enabled=1
 qm set $VMID --boot c --bootdisk scsi0
 
 # Setup Cloud Init Drive
@@ -70,3 +68,4 @@ qm set $VMID --ide2 local-lvm:cloudinit
   # IP CONFIG
 
 # BE SURE TO 'REGENERATE' THE CLOUD INIT DRIVE before converting the VM to a TEMPLATE!!!
+# Convert to Template! -- DUN.
