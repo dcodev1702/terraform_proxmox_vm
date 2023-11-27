@@ -39,8 +39,7 @@ qm create $VMID -name ubun-2304-tmpl-01 -memory 2048 -net0 virtio,bridge=vmbr0 -
 # Create VM
    # Set VMID and name [ubun-2304-tmpl]
    # OS
-   # REMOVE CDROM
-   # REMOVE SCSI CNTRLR
+   # Set SCSI CNTRLR
    # Processors # of cores | Type = HOST
    # Memory
    # NIC
