@@ -64,7 +64,7 @@ resource proxmox_vm_qemu linux_server {
 
   ssh_user = var.username
   provisioner "file" {
-    source      = "./bootstrap_vm.sh" 
+    source      = "${path.module}/vm_config/bootstrap_vm.sh" 
     destination = "/tmp/bootstrap_vm.sh" 
     
     connection {
