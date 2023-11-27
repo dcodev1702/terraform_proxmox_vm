@@ -61,7 +61,7 @@ echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/' >> /home/$USERNAME/.
 echo 'export PATH=$JAVA_HOME/bin:$PATH' >> /home/$USERNAME/.bashrc
 
 sleep 2
-sudo logger "Initialization installation script (init_script.sh) completed successfully."
+sudo logger "Initialization installation script (bootstrap_vm.sh) completed successfully."
 
 sleep 2
 sudo reboot
