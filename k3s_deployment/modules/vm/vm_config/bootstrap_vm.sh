@@ -59,7 +59,6 @@ sudo apt-get update > /dev/null 2>&1 && sudo apt-get install -y azure-cli  > /de
 # Setup JAVA_HOME ENV for user $USERNAME
 echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/' >> /home/$USERNAME/.bashrc
 echo 'export PATH=$JAVA_HOME/bin:$PATH' >> /home/$USERNAME/.bashrc
-source ~$USERNAME/.bashrc
 
 sleep 2
 sudo logger "Initialization installation script (init_script.sh) completed successfully."
