@@ -40,7 +40,7 @@ resource proxmox_vm_qemu linux_server {
   onboot      = "true"
   cores       = 2
   sockets     = 1
-  cpu         = "host"
+  cpu         = "host,flags=-pcid;-spec-ctrl;-ssbd;+pdpe1gb"
   memory      = 8192
   scsihw      = "virtio-scsi-single"
   bootdisk    = "scsi0"
