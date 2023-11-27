@@ -35,7 +35,7 @@ API_SECRET="ee0d225f-10b7-4d23-9ee9-e3157c37bfc3"
 VM_EXISTS=`curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api2/json/nodes/pve-6/qemu/$VMID/status/current | jq .data.name`
 
 # Check if VM exists by VMID using proxmox API, if not, create VM. 
-qm create $VMID -name ubun-2304-tmpl-01 -memory 2048 -net0 virtio,bridge=vmbr0 -cores 1 -sockets 1 -cpu cputype=host,flags=-pcid;-spec-ctrl;-ssbd;+pdpe1gb -description "Ubuntu 23.04 Cloud Image" -agent 1
+qm create $VMID -name ubun-2304-tmpl-01 -memory 2048 -net0 virtio,bridge=vmbr0 -cores 1 -sockets 1 -scsihw virtio-scsi-single -cpu cputype="host,flags=-pcid;-spec-ctrl;-ssbd;+pdpe1gb" -description "Ubuntu 23.04 Cloud Image" -agent 1 -serial0 socket -vga serial0
 # Create VM
    # Set VMID and name [ubun-2304-tmpl]
    # OS
