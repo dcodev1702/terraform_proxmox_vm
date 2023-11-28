@@ -25,9 +25,11 @@ URL="https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-d
 CLOUD_IMG_ORIG=$(basename "$URL")
 CLOUD_IMG=$(echo $CLOUD_IMG_ORIG | sed 's/\.img$/.qcow2/')
 
-VMID=9900
+VMID="9900"
+TMPL_NAME="ubun-2304-tmpl-01"
+TMPL_DESCRIPTION="Ubuntu 23.04 Cloud Image"
 PVE_DISK="fast0-pve6"
-DISK_SZ=32
+DISK_SZ="32"
 PVE_NODE="pve-6"
 PVE_NODE_IP="192.168.10.173:8006"
 API_SECRET="ee0d225f-10b7-4d23-9ee9-e3157c37bfc3"
@@ -46,9 +48,9 @@ VM_EXISTS=`curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraf
    # NIC
    # VGA
    
-qm create $VMID -name ubun-2304-tmpl-01 -memory 2048 -net0 virtio,bridge=vmbr0 -cores 1 -sockets 1 -scsihw virtio-scsi-single \
-                -cpu cputype="host,flags=-pcid;-spec-ctrl;-ssbd;+pdpe1gb" -description "Ubuntu 23.04 Cloud Image" -agent 1 \
-                -serial0 socket -vga serial0 -ostype l26
+qm create $VMID -name "$TMPL_NAME" -memory 2048 -net0 virtio,bridge=vmbr0 -cores 1 -sockets 1 \
+                -scsihw virtio-scsi-single -cpu cputype="host,flags=-pcid;-spec-ctrl;-ssbd;+pdpe1gb" \
+                -description "$TMPL_DESCRIPTION" -agent 1 -serial0 socket -vga serial0 -ostype l26
 
 # Downloaded and prep the disk 32 GB (size) & install the qemu-guest agent
 if [ ! -f "$CLOUD_IMG" ]; then
