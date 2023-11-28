@@ -62,9 +62,9 @@ sudo -H -u $USERNAME python3 -m pip install --user ansible
 
 # Setup JAVA_HOME ENV for user $USERNAME
 echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/' >> "/home/$USERNAME/.bashrc"
-echo 'export PATH=$JAVA_HOME/bin:$PATH' >> "/home/$USERNAME/.bashrc"
-echo 'export ANSIBLE_HOME=/home/$USERNAME/.local/' >> "/home/$USERNAME/.bashrc"
-echo 'export PATH=$ANSIBLE_HOME/bin:$PATH' >> "/home/$USERNAME/.bashrc"
+echo "export PATH=$JAVA_HOME/bin:$PATH" >> "/home/$USERNAME/.bashrc"
+echo "export ANSIBLE_HOME=/home/$USERNAME/.local/" >> "/home/$USERNAME/.bashrc"
+echo "export PATH=$ANSIBLE_HOME/bin:$PATH" >> "/home/$USERNAME/.bashrc"
 
 sleep 2
 sudo logger "Initialization installation script (bootstrap_vm.sh) completed successfully."
