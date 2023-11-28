@@ -59,9 +59,15 @@ sudo apt-get update > /dev/null 2>&1 && sudo apt-get install -y azure-cli  > /de
 # Install Azure Bicep
 sudo -H -u $USERNAME az bicep install
 
-# Install the latest ansible for K3S provisioning
-sudo -H -u $USERNAME python3 -m pip install --upgrade pip
-sudo -H -u $USERNAME python3 -m pip install --user ansible
+# Install the latest ansible for K3S provisioning if we're on Ubuntu 20.04, 22.04, or 23.04
+if [[ "$VERSION_ID" == "22.04" || "$VERSION_ID" == "20.04" ]]; then
+    echo -e "You're running $PRETTY_NAME so we install the latest ansible via pip!"
+    sudo -H -u "$USERNAME" python3 -m pip install --upgrade pip
+    sudo -H -u "$USERNAME" python3 -m pip install --user ansible
+elif [[ "$VERSION_ID" == "23.04" ]]; then
+    echo -e "You're running $PRETTY_NAME so we install the latest ansible via apt install!"
+    sudo apt install -y ansible > /dev/null 2>&1
+fi
 
 # Setup JAVA_HOME ENV for user $USERNAME
 echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/' >> "/home/$USERNAME/.bashrc"
