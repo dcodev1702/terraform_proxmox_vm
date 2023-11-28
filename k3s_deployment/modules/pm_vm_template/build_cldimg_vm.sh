@@ -35,9 +35,20 @@ PVE_NODE_IP="192.168.10.173:8006"
 API_SECRET="ee0d225f-10b7-4d23-9ee9-e3157c37bfc3"
 
 #curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api4/json
-VM_EXISTS=`curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api2/json/nodes/pve-6/qemu/$VMID/status/current | jq .data.name`
+#VM_EXISTS=`curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api2/json/nodes/pve-6/qemu/$VMID/status/current | jq .data.name`
 
-# Check if VM exists by VMID using proxmox API, if not, create VM.
+# Check if VM exists by VMID, if not, create VM.
+# Extract VMID using awk | Thank you ChatGPT-4
+vmids=($(qm list | awk 'NR>1 {print $1}'))
+
+# Check if specified VMID exists in the array
+for vmid in "${vmids[@]}"; do
+    if [ "$vmid" == "$VMID" ]; then
+        echo "Sorry, current VMID:$VMID exists, choose another VMID."
+        exit 0
+    fi
+done
+
 # Create VM
    # VMID
    # Name [ubun-2304-tmpl]
