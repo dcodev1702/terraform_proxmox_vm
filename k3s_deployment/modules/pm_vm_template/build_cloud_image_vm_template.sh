@@ -21,13 +21,14 @@
 #    Use jq to parse the JSON and extract the value for id 8200
 #    result=$(echo "$json" | jq -r --arg vmid "$VMID" '.ids[$vmid]')
 #---------------------------
-URL="https://cloud-images.ubuntu.com/lunar/current/lunar-server-cloudimg-amd64-disk-kvm.img"
+# Ubuntu 22.04 Cloud Image
+URL="https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-disk-kvm.img"
 CLOUD_IMG_ORIG=$(basename "$URL")
 CLOUD_IMG=$(echo $CLOUD_IMG_ORIG | sed 's/\.img$/.qcow2/')
 
 VMID="9900"
-TMPL_NAME="ubun-2304-tmpl-01"
-TMPL_DESCRIPTION="Ubuntu 23.04 Cloud Image"
+TMPL_NAME="ubun-2204-k3s-tmpl-01"
+TMPL_DESCRIPTION="Ubuntu 22.04 Cloud Image for K3S Cluster"
 PVE_DISK="fast0-pve6"
 DISK_SZ="32"
 PVE_NODE="pve-6"
