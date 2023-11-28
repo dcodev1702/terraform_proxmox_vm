@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USERNAME="$1"
-AZ_REPO="jammy"
+AZ_REPO=`lsb_release -cs`
 
 # Get the version of Ubuntu so we can use $VERSION_ID
 source /etc/os-release
