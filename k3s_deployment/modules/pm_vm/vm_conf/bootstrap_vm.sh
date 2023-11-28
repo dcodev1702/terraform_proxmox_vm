@@ -57,14 +57,14 @@ echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsof
 sudo apt-get update > /dev/null 2>&1 && sudo apt-get install -y azure-cli  > /dev/null 2>&1
 
 # Install the latest ansible for K3S provisioning
-su - $USERNAME --session-command='python3 -m pip install --upgrade pip'
-su - $USERNAME --session-command='python3 -m pip install --user ansible'
+sudo -H -u $USERNAME python3 -m pip install --upgrade pip
+sudo -H -u $USERNAME python3 -m pip install --user ansible
 
 # Setup JAVA_HOME ENV for user $USERNAME
-echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/' >> /home/$USERNAME/.bashrc
-echo 'export PATH=$JAVA_HOME/bin:$PATH' >> /home/$USERNAME/.bashrc
-echo 'export ANSIBLE_HOME=/home/$USERNAME/.local/' >> /home/$USERNAME/.bashrc
-echo 'export PATH=$ANSIBLE_HOME/bin:$PATH' >> /home/$USERNAME/.bashrc
+echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/' >> "/home/$USERNAME/.bashrc"
+echo 'export PATH=$JAVA_HOME/bin:$PATH' >> "/home/$USERNAME/.bashrc"
+echo 'export ANSIBLE_HOME=/home/$USERNAME/.local/' >> "/home/$USERNAME/.bashrc"
+echo 'export PATH=$ANSIBLE_HOME/bin:$PATH' >> "/home/$USERNAME/.bashrc"
 
 sleep 2
 sudo logger "Initialization installation script (bootstrap_vm.sh) completed successfully."
