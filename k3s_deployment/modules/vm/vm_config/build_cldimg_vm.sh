@@ -27,7 +27,6 @@ CLOUD_IMG_ORIG=$(basename "$URL")
 VMID=8200
 PVE_DISK="fast0-pve6"
 DISK_SZ=32
-CLOUD_IMG="lunar-server-cloudimg-amd64-disk-kvm.qcow2"
 PVE_NODE="pve-6"
 PVE_NODE_IP="192.168.10.173:8006"
 API_SECRET="ee0d225f-10b7-4d23-9ee9-e3157c37bfc3"
@@ -48,6 +47,7 @@ qm create $VMID -name ubun-2304-tmpl-01 -memory 2048 -net0 virtio,bridge=vmbr0 -
 # Downloaded and prep the disk 32 GB (size) & by installing qemu guest agent
 if [ ! -f "$FILE" ]; then
    wget $URL
+   CLOUD_IMG=$(echo $CLOUD_IMG_ORIG | sed 's/\.img$/.qcow2/')
    mv $CLOUD_IMG_ORIG $CLOUD_IMG
    qemu-img resize $CLOUD_IMG ${DISK_SZ}G
    virt-customize -a $CLOUD_IMG --install qemu-guest-agent
