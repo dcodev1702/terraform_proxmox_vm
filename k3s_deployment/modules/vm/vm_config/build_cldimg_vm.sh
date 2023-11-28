@@ -37,17 +37,20 @@ VM_EXISTS=`curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraf
 
 # Check if VM exists by VMID using proxmox API, if not, create VM.
 # Create VM
-   # Set VMID and name [ubun-2304-tmpl]
+   # VMID
+   # Name [ubun-2304-tmpl]
    # OS Type (Linux 2.6 >)
-   # Set SCSI CNTRLR
+   # SCSI CNTRLR
    # Processors # of cores | Type = HOST and CPU Flags
    # Memory
    # NIC
+   # VGA
+   
 qm create $VMID -name ubun-2304-tmpl-01 -memory 2048 -net0 virtio,bridge=vmbr0 -cores 1 -sockets 1 -scsihw virtio-scsi-single \
                 -cpu cputype="host,flags=-pcid;-spec-ctrl;-ssbd;+pdpe1gb" -description "Ubuntu 23.04 Cloud Image" -agent 1 \
                 -serial0 socket -vga serial0 -ostype l26
 
-# Downloaded and prep the disk 32 GB (size) & by installing qemu guest agent
+# Downloaded and prep the disk 32 GB (size) & install the qemu-guest agent
 if [ ! -f "$CLOUD_IMG" ]; then
    wget $URL
    mv $CLOUD_IMG_ORIG $CLOUD_IMG
@@ -73,7 +76,7 @@ qm set $VMID --ide2 local-lvm:cloudinit
 # Configure cloud-init drive
 qm set $VMID --ciuser "lorenzo"
 qm set $VMID --cipassword "password"
-qm set $VMID --sshkeys ./id_ed25519_vscode.pub
+qm set $VMID --sshkeys ./id_sshkeys.pub
 qm set $VMID --ipconfig0 ip=dhcp
 
 # Convert to Template! -- DUN.
