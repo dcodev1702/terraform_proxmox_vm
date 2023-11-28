@@ -38,10 +38,10 @@ API_SECRET="ee0d225f-10b7-4d23-9ee9-e3157c37bfc3"
 #VM_EXISTS=`curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api2/json/nodes/pve-6/qemu/$VMID/status/current | jq .data.name`
 
 # Check if VM exists by VMID, if not, create VM.
-# Extract VMID using awk | Thank you ChatGPT-4
+# Extract VMID from Proxmox Node using awk | Thank you ChatGPT-4
 vmids=($(qm list | awk 'NR>1 {print $1}'))
 
-# Check if specified VMID exists in the array
+# Check if specified VMID exists on the Proxmox Node
 for vmid in "${vmids[@]}"; do
     if [ "$vmid" == "$VMID" ]; then
         echo "Sorry, current VMID:$VMID exists, choose another VMID."
