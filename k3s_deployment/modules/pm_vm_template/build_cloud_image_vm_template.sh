@@ -31,8 +31,6 @@ TMPL_DESCRIPTION="Ubuntu 23.04 Cloud Image"
 PVE_DISK="fast0-pve6"
 DISK_SZ="32"
 PVE_NODE="pve-6"
-PVE_NODE_IP="192.168.10.173:8006"
-API_SECRET="ee0d225f-10b7-4d23-9ee9-e3157c37bfc3"
 
 #curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api4/json
 #VM_EXISTS=`curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api2/json/nodes/pve-6/qemu/$VMID/status/current | jq .data.name`
