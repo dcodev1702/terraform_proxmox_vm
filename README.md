@@ -1,7 +1,7 @@
 # Proxmox : Terraform : K3S
 
 ## Assumptions
-* You have a Proxmox Cluster capable of running 6 VM's
+* You have a Proxmox Cluster capable of running 6 Linux VM's
 * You have an Internet Connection
 * You're comfortable with the CLI in Linux.
 * Watch lots of home lab YouTube content
@@ -14,6 +14,8 @@
   * Currently designed to create Ubuntu 23.04 Cloud Image VM/Template
 * Provision 5 - 6 VM's from VM template using Terraform
   * 3 Server Nodes and 2 - 3 Worker Nodes
+    * Server Nodes: 2 CPU / 4 GB RAM  (2 GB min)
+    * Worker Nodes: 2 CPU / 8 GB RAM
   * edit terraform.tfvars and main.tf as required
   * assign static ip scheme to support K3S deployment
 * Execute K3S deployment script
