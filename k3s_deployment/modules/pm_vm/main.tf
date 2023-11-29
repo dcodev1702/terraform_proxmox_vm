@@ -46,7 +46,7 @@ resource proxmox_vm_qemu linux_server {
   bootdisk    = "scsi0"
   disk {
     slot      = 0
-    size      = "32G"
+    size      = "52G"
     type      = "scsi"
     storage   = "fast0-pve6"
     backup    = true
