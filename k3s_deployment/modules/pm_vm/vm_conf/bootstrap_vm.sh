@@ -63,16 +63,17 @@ if [[ "$VERSION_ID" == "22.04" || "$VERSION_ID" == "20.04" ]]; then
     echo -e "You're running $PRETTY_NAME so we install the latest ansible via pip!"
     sudo -H -u "$USERNAME" python3 -m pip install --upgrade pip
     sudo -H -u "$USERNAME" python3 -m pip install --user ansible
+
+    echo "export ANSIBLE_HOME=/home/$USERNAME/.local/" >> "/home/$USERNAME/.bashrc"
+    echo "export PATH=$ANSIBLE_HOME/bin:$PATH" >> "/home/$USERNAME/.bashrc"
 elif [[ "$VERSION_ID" == "23.04" ]]; then
-    echo -e "You're running $PRETTY_NAME so we install the latest ansible via apt install!"
+    echo -e "You're running $PRETTY_NAME; installing the latest ansible via apt-get!"
     sudo apt install -y ansible > /dev/null 2>&1
 fi
 
 # Setup JAVA_HOME ENV for user $USERNAME
 echo 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/' >> "/home/$USERNAME/.bashrc"
 echo "export PATH=$JAVA_HOME/bin:$PATH" >> "/home/$USERNAME/.bashrc"
-echo "export ANSIBLE_HOME=/home/$USERNAME/.local/" >> "/home/$USERNAME/.bashrc"
-echo "export PATH=$ANSIBLE_HOME/bin:$PATH" >> "/home/$USERNAME/.bashrc"
 
 sleep 2
 sudo logger "Initialization installation script (bootstrap_vm.sh) completed successfully."
