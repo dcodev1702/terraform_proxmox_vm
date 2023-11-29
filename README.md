@@ -1,4 +1,6 @@
 # Proxmox : Terraform : K3S
+
+## Order of operations
 * Create Proxmox User w/ API Token
 * Create VM template via 'build_cloud_image_vm_template.sh' (must be done on proxmox host)
   * edit script to fit your proxmox environment
