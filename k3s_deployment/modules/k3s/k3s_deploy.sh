@@ -28,7 +28,7 @@ echo -e " \033[32;5m                                                           \
 KVVERSION="v0.6.3"
 
 # K3S Version
-k3sVersion="v1.28.3+k3s2"
+k3sVersion="v1.27.7+k3s2"
 
 # Set the IP addresses of the master and worker nodes
 master1=192.168.10.130
@@ -96,6 +96,10 @@ then
     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 else
     echo -e " \033[32;5mKubectl already installed\033[0m"
+    echo -e " \033[32;5mREMOVING CACHE & PREVIOUS CERTS TO AVOID TLS ISSUES CONNECTING TO THE K3S CLUSTER.\033[0m"
+    rm -rfv ~/.kube/cache/discovery/*
+    rm -rfv ~/.kube/cache/http/*
+    rm -rfv ~/.kube/config
 fi
 
 # Install Docker to generate manifest and daemonset if not already present
