@@ -30,6 +30,10 @@
 
 <br />
 
+![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/8cd59c9d-fe3c-4c8d-a811-a43125e786f9)
+
+<br />
+
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/8dbf61c8-4622-442b-b2d5-81d328964d42)
 
 * Execute K3S deployment script
