@@ -10,6 +10,12 @@
 * Create Proxmox User w/ API Token
 * Create VM template via 'build_cloud_image_vm_template.sh' (must be done on proxmox host)
   * edit script to fit your proxmox environment
+    * VMID
+    * TMPL_NAME
+    * TMPL_DESCRIPTION
+    * PVE_DISK
+    * DISK_SZ
+    * PVE_NODE
   * assign ssh public key in build script for cloud init drive
   * Currently designed to create Ubuntu 23.04 Cloud Image VM/Template
 * Provision 5 - 6 VM's from VM template using Terraform
