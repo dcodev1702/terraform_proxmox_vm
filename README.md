@@ -30,7 +30,8 @@
 
 * Execute K3S deployment script
   * Jim's Garage TY Channel: https://www.youtube.com/watch?v=6k8BABDXeZI
-  * go to: http://LOADBALANCER_IP and the Nginx page should appear
+  * Go to: http://LOADBALANCER_IP and the Nginx page should appear
+    * http://192.168.10.52
 
 ENJOY and begin to containerize all the things! <br />
 Major Shout Out to all of the YouTube Home Lab content creators that helped me create this solution! <br />
