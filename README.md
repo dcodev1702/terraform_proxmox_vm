@@ -28,8 +28,9 @@ cd build && ./build_vm_template.sh
 
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/2948124e-76bd-4f54-8c78-3459f73d38d4)
 
-VIRTUAL MACHINE TEMPLATE: [9200 - ubun2204-k3s-tmpl-02]
-![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/b116b5aa-cd4a-45f0-9b68-d378f1422a54)
+VIRTUAL MACHINE TEMPLATE: [9900 - ubun2204-k3s-tmpl-01]
+![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/8fd59f13-8970-43e5-83d7-79e0c80ae2ed)
+
 
 * Provision 5 - 6 VM's from VM template using Terraform
   * 3 Server Nodes and 2 - 3 Worker Nodes
