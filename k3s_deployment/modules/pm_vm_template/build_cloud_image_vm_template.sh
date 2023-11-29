@@ -34,7 +34,7 @@ VMID="9900"
 TMPL_NAME="ubun-2304-k3s-tmpl-01"
 TMPL_DESCRIPTION="Ubuntu 23.04 Cloud Image for K3S Cluster"
 PVE_DISK="fast0-pve6"
-DISK_SZ="32"
+DISK_SZ="52"
 PVE_NODE="pve-6"
 
 #curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api4/json
