@@ -48,4 +48,14 @@ Major Shout Out to all of the YouTube Home Lab content creators that helped me c
 
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/6c45d71b-9edb-4ef7-a3e1-cf5770c0f99f)
 
+## Set up Rancher (alpha)
+* Rancher - K3S GUI Management Console
+
+![349B9361-75BD-4F5F-B473-5943E35DD2F5](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/5a395e8e-c85b-45f8-9185-85f606b76b55)
+
+![08E62692-E6E4-4CB0-A289-19C5BA697C92](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/add56d1c-b21f-4f1b-b24a-fb44e21fc09e)
+
+![449034E0-3672-4194-A3B1-6B047A892347](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/257999e0-992a-4dc2-9f52-cc5c4aa4fc84)
+
+
 
