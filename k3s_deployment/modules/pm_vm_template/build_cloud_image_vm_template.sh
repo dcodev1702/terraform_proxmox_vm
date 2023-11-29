@@ -37,9 +37,6 @@ PVE_DISK="fast0-pve6"
 DISK_SZ="52"
 PVE_NODE="pve-6"
 
-#curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api4/json
-#VM_EXISTS=`curl --silent --insecure -H "Authorization: PVEAPIToken=tf@pve!terraform=$API_SECRET" https://$PVE_NODE_IP/api2/json/nodes/pve-6/qemu/$VMID/status/current | jq .data.name`
-
 # Check if VM exists by VMID, if not, create VM.
 # Extract VMID from Proxmox Node using awk | Thank you ChatGPT-4
 vmids=($(qm list | awk 'NR>1 {print $1}'))
