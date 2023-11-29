@@ -26,10 +26,12 @@
   * assign static ip scheme to support K3S deployment
 <br />
 
+VIRTUAL MACHINE TEMPLATE: [9200 - ubun2204-k3s-tmpl-02]
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/b116b5aa-cd4a-45f0-9b68-d378f1422a54)
 
 <br />
 
+VIRTUAL MACHINE: [7201 - k3s-wrkr-nodes-1] FROM THE TEMPLATE: [9200 - ubun2204-k3s-tmpl-02]
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/8cd59c9d-fe3c-4c8d-a811-a43125e786f9)
 
 <br />
