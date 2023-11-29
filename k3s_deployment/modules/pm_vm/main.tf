@@ -62,7 +62,7 @@ resource proxmox_vm_qemu linux_server {
     bridge = "vmbr0"
   }
 
-  # Statically assign IP Addresses to VM(s)
+  # Statically assign IP Addresses to VM(s) for K3S Cluster
   ipconfig0  = "ip=${var.ip_address}${count.index}/${var.cidr},gw=${var.gateway}"
   nameserver = "${var.dns_server}"
 
