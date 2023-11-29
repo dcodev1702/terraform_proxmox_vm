@@ -52,7 +52,7 @@ terraform apply -auto-approve
 <br />
 
 VIRTUAL MACHINE: [7201 - k3s-wrkr-nodes-1] FROM THE TEMPLATE: [9200 - ubun2204-k3s-tmpl-02]
-![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/8cd59c9d-fe3c-4c8d-a811-a43125e786f9)
+![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/35a56f05-ad66-436f-ae65-9e9e737cdbac)
 
 <br />
 
