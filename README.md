@@ -28,6 +28,9 @@ cd build && ./build_vm_template.sh
 
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/2948124e-76bd-4f54-8c78-3459f73d38d4)
 
+VIRTUAL MACHINE TEMPLATE: [9200 - ubun2204-k3s-tmpl-02]
+![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/b116b5aa-cd4a-45f0-9b68-d378f1422a54)
+
 * Provision 5 - 6 VM's from VM template using Terraform
   * 3 Server Nodes and 2 - 3 Worker Nodes
     * Server Nodes: 2 CPU / 4 GB RAM  (2 GB min)
@@ -36,8 +39,14 @@ cd build && ./build_vm_template.sh
   * assign static ip scheme to support K3S deployment
 <br />
 
-VIRTUAL MACHINE TEMPLATE: [9200 - ubun2204-k3s-tmpl-02]
-![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/b116b5aa-cd4a-45f0-9b68-d378f1422a54)
+```console
+terraform init
+```
+```console
+terraform apply -auto-approve
+```
+
+![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/d796d06c-e695-45ee-9da6-7032fa4a363d)
 
 <br />
 
