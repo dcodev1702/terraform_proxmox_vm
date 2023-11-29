@@ -51,7 +51,11 @@ terraform apply -auto-approve
 
 <br />
 
-VIRTUAL MACHINE: [7201 - k3s-wrkr-nodes-1] FROM THE TEMPLATE: [9200 - ubun2204-k3s-tmpl-02]
+K3S SRVR::VIRTUAL MACHINES: [7701/2/3 - k3s-srvr-nodes-(1-3)] FROM THE TEMPLATE ON PVE-6: [9900 - ubun2204-k3s-tmpl-01]
+![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/a8368d38-0dd0-486b-8dc4-f9bdf97c1c30)
+
+
+K3S WRKR::VIRTUAL MACHINES: [7201/2/3 - k3s-wrkr-nodes-(1-3)] FROM THE TEMPLATE ON PVE-5: [9200 - ubun2204-k3s-tmpl-02]
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/35a56f05-ad66-436f-ae65-9e9e737cdbac)
 
 <br />
