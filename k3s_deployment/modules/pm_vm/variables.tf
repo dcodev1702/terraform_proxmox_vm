@@ -39,3 +39,19 @@ variable username {
   type        = string
   description = "Username"
 }
+ariable "ip_address" {
+  type        = string
+  description = "IP Address"
+}
+variable "cidr" {
+  type        = string
+  description = "CIDR"
+}
+variable "gateway" {
+  type        = string
+  description = "Gateway IP"
+}
+variable "dns_server" {
+  type        = string
+  description = "DNS IP"
+}
