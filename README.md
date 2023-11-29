@@ -17,6 +17,7 @@
   * edit terraform.tfvars and main.tf as required
   * assign static ip scheme to support K3S deployment
 * Execute K3S deployment script
+  * Jim's Garage TY Channel: https://www.youtube.com/watch?v=6k8BABDXeZI
   * go to: http://LOADBALANCER_IP and the Nginx page should appear
 
 ENJOY and begin to containerize all the things! <br />
