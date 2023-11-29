@@ -63,6 +63,9 @@ K3S WRKR::VIRTUAL MACHINES: [7201/2/3 - k3s-wrkr-nodes-(1-3)] FROM THE TEMPLATE 
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/8dbf61c8-4622-442b-b2d5-81d328964d42)
 
 * Execute K3S deployment script
+```console
+./k3s.sh
+```
   * Jim's Garage TY Channel: https://www.youtube.com/watch?v=6k8BABDXeZI
   * Go to: http://LOADBALANCER_IP and the Nginx page should appear
     * http://192.168.10.52
