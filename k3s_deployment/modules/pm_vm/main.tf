@@ -62,6 +62,10 @@ resource proxmox_vm_qemu linux_server {
     bridge = "vmbr0"
   }
 
+  # Statically assign IP Addresses to VM(s)
+  ipconfig0  = "ip=${var.ip_address}${count.index}/${var.cidr},gw=${var.gateway}"
+  nameserver = "${var.dns_server}"
+
   ssh_user = var.username
   provisioner "file" {
     source      = "${path.module}/vm_config/bootstrap_vm.sh" 
