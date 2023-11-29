@@ -58,7 +58,7 @@ Major Shout Out to all of the YouTube Home Lab content creators that helped me c
 
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/6c45d71b-9edb-4ef7-a3e1-cf5770c0f99f)
 
-## Set up Rancher (alpha)
+## Set up Rancher (Branch: Alpha)
 * [Install Helm](https://helm.sh/docs/intro/install/)
 * [Setup Rancher](https://ranchermanager.docs.rancher.com/pages-for-subheaders/install-upgrade-on-a-kubernetes-cluster)
 ```console
