@@ -69,11 +69,12 @@ kubectl create namespace cattle-system
 ```
 ```console
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.crds.yaml
-
 ```
 ```console
-kubectl expose deployment rancher --name rancher-lb --port=443 --type=LoadBalancer -n cattle-system service/rancher-lb exposed
 helm repo add jetstack https://charts.jetstack.io
+```
+```console
+helm repo update
 ```
 ```console
 helm install cert-manager jetstack/cert-manager \
