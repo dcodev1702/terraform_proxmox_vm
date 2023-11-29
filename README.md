@@ -18,6 +18,16 @@
     * PVE_NODE
   * assign ssh public key in build script for cloud init drive
   * Currently designed to create Ubuntu 23.04 Cloud Image VM/Template
+
+```console
+ssh root@pve-6
+```
+```console
+cd build && ./build_vm_template.sh
+```
+
+![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/2948124e-76bd-4f54-8c78-3459f73d38d4)
+
 * Provision 5 - 6 VM's from VM template using Terraform
   * 3 Server Nodes and 2 - 3 Worker Nodes
     * Server Nodes: 2 CPU / 4 GB RAM  (2 GB min)
