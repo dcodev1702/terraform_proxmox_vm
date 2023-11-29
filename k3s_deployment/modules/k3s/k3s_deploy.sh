@@ -2,6 +2,8 @@
 
 # Author: Jim's Garage
 # All-In-One Deployment Script
+# Source: https://www.youtube.com/watch?v=6k8BABDXeZI
+
 echo -e " \033[33;5m    __  _          _        ___                            \033[0m"
 echo -e " \033[33;5m    \ \(_)_ __ ___( )__    / _ \__ _ _ __ __ _  __ _  ___  \033[0m"
 echo -e " \033[33;5m     \ \ | '_ \` _ \/ __|  / /_\/ _\` | '__/ _\` |/ _\` |/ _ \ \033[0m"
