@@ -1,5 +1,11 @@
 # Proxmox : Terraform : K3S
 
+## Assumptions
+* You have a Proxmox Cluster capable of running 6 VM's
+* You have an Internet Connection
+* You're comfortable with the CLI in Linux.
+* Watch lots of home lab YouTube content
+    
 ## Order of operations
 * Create Proxmox User w/ API Token
 * Create VM template via 'build_cloud_image_vm_template.sh' (must be done on proxmox host)
