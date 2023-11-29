@@ -25,6 +25,7 @@
   * edit terraform.tfvars and main.tf as required
   * assign static ip scheme to support K3S deployment
 <br />
+
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/ce58c855-35ab-4c50-97a1-a9002666466e)
 
 <br />
