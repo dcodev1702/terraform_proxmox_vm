@@ -59,7 +59,47 @@ Major Shout Out to all of the YouTube Home Lab content creators that helped me c
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/6c45d71b-9edb-4ef7-a3e1-cf5770c0f99f)
 
 ## Set up Rancher (alpha)
+* [Install Helm](https://helm.sh/docs/intro/install/)
 * [Setup Rancher](https://ranchermanager.docs.rancher.com/pages-for-subheaders/install-upgrade-on-a-kubernetes-cluster)
+```console
+helm repo add rancher-alpha https://releases.rancher.com/server-charts/alpha
+```
+```console
+kubectl create namespace cattle-system
+```
+```console
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.crds.yaml
+
+```
+```console
+kubectl expose deployment rancher --name rancher-lb --port=443 --type=LoadBalancer -n cattle-system service/rancher-lb exposed
+helm repo add jetstack https://charts.jetstack.io
+helm repo add jetstack https://charts.jetstack.io
+```
+```console
+helm install cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace --version v1.11.0
+```
+```console
+kubectl get pods --namespace cert-manager
+```
+```console
+helm install rancher rancher-alpha/rancher --devel \
+  --namespace cattle-system \
+  --set hostname=rancher.cloudhunters.io \
+  --set bootstrapPassword=admin
+```
+```console
+kubectl -n cattle-system rollout status deploy/rancher
+```
+```console
+kubectl -n cattle-system get deploy rancher
+```
+```console
+kubectl expose deployment rancher --name rancher-lb --port=443 --type=LoadBalancer -n cattle-system service/rancher-lb exposed
+```
+
 * Rancher - K3S GUI Management Console
 
 ![349B9361-75BD-4F5F-B473-5943E35DD2F5](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/5a395e8e-c85b-45f8-9185-85f606b76b55)
