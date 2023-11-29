@@ -74,7 +74,6 @@ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/
 ```console
 kubectl expose deployment rancher --name rancher-lb --port=443 --type=LoadBalancer -n cattle-system service/rancher-lb exposed
 helm repo add jetstack https://charts.jetstack.io
-helm repo add jetstack https://charts.jetstack.io
 ```
 ```console
 helm install cert-manager jetstack/cert-manager \
