@@ -28,6 +28,7 @@ echo -e " \033[32;5m                                                           \
 KVVERSION="v0.6.3"
 
 # K3S Version
+# As of 29 Nov; K3S v1.28.0 will not work with Rancher Alpha release
 k3sVersion="v1.27.7+k3s2"
 
 # Set the IP addresses of the master and worker nodes
