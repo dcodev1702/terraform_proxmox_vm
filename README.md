@@ -23,7 +23,13 @@
 ssh root@pve-6
 ```
 ```console
-cd build && ./build_vm_template.sh
+update -y && apt install libguestfs-tools -y
+```
+```console
+cd mkdir build && cd build
+```
+```console
+bash ./build_vm_template.sh
 ```
 
 ![image](https://github.com/dcodev1702/terraform_proxmox_vm/assets/32214072/2948124e-76bd-4f54-8c78-3459f73d38d4)
