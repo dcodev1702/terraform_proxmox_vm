@@ -23,7 +23,7 @@
 ssh root@pve-6
 ```
 ```console
-update -y && apt install libguestfs-tools -y
+apt update -y && apt install libguestfs-tools -y
 ```
 ```console
 cd k3s_deployment/modules/pm_vm_template
