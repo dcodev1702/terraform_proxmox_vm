@@ -29,7 +29,7 @@ apt update -y && apt install libguestfs-tools -y
 cd k3s_deployment/modules/pm_vm_template
 ```
 * Add SSH public keys to the id_sshkeys.pub file as this file is used to seed the cloud image drive.
-* Change variables within the bash script to ensure you're pointing to the right PVE SERVER, PVE DISK, etc.
+* Change variables in [build_cloud_image_vm_template.sh](https://github.com/dcodev1702/terraform_proxmox_vm/blob/main/k3s_deployment/modules/pm_vm_template/build_cloud_image_vm_template.sh) to ensure you're pointing to the right PVE SERVER, PVE DISK, etc.
 ```console
 bash ./build_vm_template.sh
 ```
