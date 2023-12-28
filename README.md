@@ -1,10 +1,11 @@
 # Proxmox : Terraform : K3S
 
 ## Assumptions
-* You have a Proxmox Cluster capable of running 6 Linux VM's
+* You have a Proxmox Server/Cluster capable of running 4+ Linux VM's
 * You have an Internet Connection
-* You're comfortable with the CLI in Linux.
-* Watch lots of home lab YouTube content
+* You're comfortable with the CLI in Linux
+* Understand containerization concepts
+* Watch lots of home lab YouTube content :)
     
 ## Order of operations
 * Create Proxmox User w/ API Token
