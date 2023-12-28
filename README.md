@@ -26,8 +26,10 @@ ssh root@pve-6
 update -y && apt install libguestfs-tools -y
 ```
 ```console
-cd mkdir build && cd build
+cd k3s_deployment/modules/pm_vm_template
 ```
+
+* Change variables within the bash script to ensure you're pointing to the right PVE SERVER, PVE DISK, etc.
 ```console
 bash ./build_vm_template.sh
 ```
