@@ -68,7 +68,7 @@ qm create $VMID -name "$TMPL_NAME" -memory 2048 -net0 virtio,bridge=vmbr0 -cores
                 -scsihw virtio-scsi-single -cpu cputype="host,flags=-pcid;-spec-ctrl;-ssbd;+pdpe1gb" \
                 -description "$TMPL_DESCRIPTION" -agent 1 -serial0 socket -vga serial0 -ostype l26
 
-# Downloaded and prep the disk 32 GB (size) & install the qemu-guest agent
+# Downloaded and prep the disk 52 GB (size) & install the qemu-guest agent
 if [ ! -f "$CLOUD_IMG" ]; then
    wget $URL
    mv $CLOUD_IMG_ORIG $CLOUD_IMG
