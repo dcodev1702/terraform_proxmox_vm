@@ -21,6 +21,8 @@
 #    Use jq to parse the JSON and extract the value for id 8200
 #    result=$(echo "$json" | jq -r --arg vmid "$VMID" '.ids[$vmid]')
 #---------------------------
+
+############### ------====|   BEGIN EDITING    |====----- ################
 # Ubuntu 22.04 Cloud Image
 # URL="https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-disk-kvm.img"
 
@@ -36,6 +38,9 @@ TMPL_DESCRIPTION="Ubuntu 23.04 Cloud Image for K3S Cluster"
 PVE_DISK="fast0-pve6"
 DISK_SZ="52"
 PVE_NODE="pve-6"
+CI_USERNAME="lorenzo"
+CI_PASSWORD="password"
+############### ------====|     END EDITING     |====----- ################
 
 # Check if VM exists by VMID, if not, create VM.
 # Extract VMID from Proxmox Node using awk | Thank you ChatGPT-4
@@ -87,8 +92,8 @@ qm set $VMID --boot c --bootdisk scsi0
 qm set $VMID --ide2 local-lvm:cloudinit
 
 # Configure cloud-init drive
-qm set $VMID --ciuser "lorenzo"
-qm set $VMID --cipassword "password"
+qm set $VMID --ciuser "$CI_USERNAME"
+qm set $VMID --cipassword "$CI_PASSWORD"
 qm set $VMID --sshkeys ./id_sshkeys.pub
 qm set $VMID --ipconfig0 ip=dhcp
 
