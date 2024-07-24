@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# PROXMOS & TERRAFORM NOTES:
+# PROXMOX & TERRAFORM NOTES:
 # THIS SCRIPT MUST BE RAN ON THE PROXMOX NODE
 #---------------------------
 # Follow instructions as already laid out in evernote for cloud image - proxmox
